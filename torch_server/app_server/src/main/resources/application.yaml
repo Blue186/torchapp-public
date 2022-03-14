@@ -1,0 +1,60 @@
+server:
+  port: 8002
+  address: 0.0.0.0
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://xxx:3306/torch?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    username: xxx
+    password: xxx
+    hikari:
+      minimum-idle : 3
+      maximum-pool-size: 5
+      max-lifetime: 1800000
+#  jackson:
+#    date-format: yyyy-MM-dd HH:mm:ss
+#    time-zone: GMT+8
+  #邮件发送配置，目前是小码
+  mail:
+    host: 120.241.186.196 #smtp.qq.com,linux服务器上要配置为ip地址
+    username: xxx@qq.com
+    password: xxx
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+    port: 587
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    password: xxx
+#    lettuce:
+#      pool:
+#        max-active: 20
+#        max-idle: -1
+#        max-wait: 0
+#      shutdown-timeout: 10
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml #  xml文件所在位置
+  type-aliases-package: com/torch/app/entity #别名文件位置
+
+#配置swagger登陆验证
+swagger:
+  production: false
+  basic:
+    enable: true
+    username: xxx
+    password: xxx
+
+wx:
+  appid: xxx
+  secret: xxx
+logging:
+  config: classpath:log/logback-spring.xml
+  level:
+    root: off
